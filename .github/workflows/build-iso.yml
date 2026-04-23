@@ -23,7 +23,7 @@ on:
       profile:
         description: '请输入要编译固件大小 单位(MB)'
         required: true
-        default: '4096'
+        default: '2048'
       include_docker:
         description: "是否编译 Docker 插件"
         required: true
@@ -51,6 +51,10 @@ on:
       pppoe_password:
         description: "宽带密码 (若启用PPPoE)"
         required: false
+
+# 👇 在这里添加这一行
+permissions:
+  contents: write
 
 jobs:
   build_immortalwrt:
