@@ -21,7 +21,7 @@
 #CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-i18n-daed-zh-cn"                                  # Daed 代理守护进程中文包
 #CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-i18n-passwall-zh-cn"                              # PassWall 代理工具中文包
 #CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-app-ssr-plus"                                     # SSR-Plus 代理插件
-CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-app-passwall2"                                    # PassWall 2 代理插件
+#CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-app-passwall2"                                    # PassWall 2 代理插件
 #CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-i18n-nikki-zh-cn"                                 # Nikki 代理插件中文包
 #CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-app-nekobox"                                      # Nekobox 代理插件
 #CUSTOM_PACKAGES="$CUSTOM_PACKAGES momo luci-app-momo luci-i18n-momo-zh-cn"               # Momo 代理插件及其组件和中文包
