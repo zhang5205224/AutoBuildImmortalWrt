@@ -20,10 +20,18 @@ on:
           - 24.10.3
           - 24.10.4
           - 24.10.5
-      profile:
-        description: '请输入要编译固件大小 单位(MB)'
+      target_device:
+        description: "选择设备 Profile（必须包含 x86-64 字样）"
         required: true
-        default: '2048'
+        default: 'x86-64-ISO'
+        type: choice
+        options:
+          - x86-64-ISO
+          - x86-64-generic
+      firmware_size:
+        description: '固件大小 (MB)'
+        required: true
+        default: '4096'
       include_docker:
         description: "是否编译 Docker 插件"
         required: true
@@ -52,7 +60,6 @@ on:
         description: "宽带密码 (若启用PPPoE)"
         required: false
 
-# 👇 在这里添加这一行
 permissions:
   contents: write
 
@@ -66,7 +73,7 @@ jobs:
 
       - name: Set executable permissions
         run: chmod +x ${{ github.workspace }}/x86-64/build24.sh
-      
+
       - name: Enable Store integration
         run: |
           if [ "${{ github.event.inputs.enable_store }}" == "true" ]; then
@@ -87,27 +94,27 @@ jobs:
 
       - name: ✅ 正在构建ImmortalWrt固件
         run: |
-          profiles="${{ github.event.inputs.profile }}"
+          target_device="${{ github.event.inputs.target_device }}"
           include_docker="${{ github.event.inputs.include_docker }}"
+          firmware_size="${{ github.event.inputs.firmware_size }}"
           luci_version="${{ github.event.inputs.luci_version }}"
-          IFS=',' read -r -a profile_array <<< "$profiles"
-          
-          for profile in "${profile_array[@]}"; do
-            echo "Building for profile: $profile"
-            docker run --rm -i \
-              --user root \
-              -v "${{ github.workspace }}/bin:/home/build/immortalwrt/bin" \
-              -v "${{ github.workspace }}/files:/home/build/immortalwrt/files" \
-              -v "${{ github.workspace }}/x86-64/imm.config:/home/build/immortalwrt/.config" \
-              -v "${{ github.workspace }}/shell:/home/build/immortalwrt/shell" \
-              -v "${{ github.workspace }}/x86-64/build24.sh:/home/build/immortalwrt/build.sh" \
-              -e PROFILE=$profile \
-              -e INCLUDE_DOCKER=$include_docker \
-              -e ENABLE_PPPOE=${{ inputs.enable_pppoe }} \
-              -e PPPOE_ACCOUNT=${{ inputs.pppoe_account }} \
-              -e PPPOE_PASSWORD=${{ inputs.pppoe_password }} \
-              immortalwrt/imagebuilder:x86-64-openwrt-${luci_version} /bin/bash /home/build/immortalwrt/build.sh
-          done
+
+          echo "Building for device: $target_device"
+          echo "Firmware size: ${firmware_size} MB"
+          docker run --rm -i \
+            --user root \
+            -v "${{ github.workspace }}/bin:/home/build/immortalwrt/bin" \
+            -v "${{ github.workspace }}/files:/home/build/immortalwrt/files" \
+            -v "${{ github.workspace }}/x86-64/imm.config:/home/build/immortalwrt/.config" \
+            -v "${{ github.workspace }}/shell:/home/build/immortalwrt/shell" \
+            -v "${{ github.workspace }}/x86-64/build24.sh:/home/build/immortalwrt/build.sh" \
+            -e PROFILE=$target_device \
+            -e FILESIZE=$firmware_size \
+            -e INCLUDE_DOCKER=$include_docker \
+            -e ENABLE_PPPOE=${{ inputs.enable_pppoe }} \
+            -e PPPOE_ACCOUNT=${{ inputs.pppoe_account }} \
+            -e PPPOE_PASSWORD=${{ inputs.pppoe_password }} \
+            immortalwrt/imagebuilder:x86-64-openwrt-${luci_version} /bin/bash /home/build/immortalwrt/build.sh
 
       - name: ✅ 复制固件到根目录
         run: |
@@ -154,3 +161,4 @@ jobs:
           files: |
             img-installer/output/custom-installer-x86_64.iso
           token: "${{ secrets.GITHUB_TOKEN }}"
+          
