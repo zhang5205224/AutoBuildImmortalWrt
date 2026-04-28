@@ -129,7 +129,8 @@ CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-i18n-autoreboot-zh-cn luci-app-autoreboot
 # IP 封禁
 CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-i18n-banip-zh-cn luci-app-banip"
 # 电池状态显示
-CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-i18n-battstatus-zh-cn luci-app-battstatus"
+#CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-i18n-battstatus-zh-cn luci-app-battstatus"
+USTOM_PACKAGES="$CUSTOM_PACKAGES luci-i18n-battstatus-zh-cn"
 # BCP38 入向源地址过滤
 CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-i18n-bcp38-zh-cn luci-app-bcp38"
 # 校园网认证客户端（Go）
@@ -155,7 +156,7 @@ CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-i18n-crowdsec-firewall-bouncer-zh-cn luci
 # CloudShark 抓包分析
 CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-i18n-cshark-zh-cn luci-app-cshark"
 # 仪表盘增强
-CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-i18n-dashboard-zh-cn luci-app-dashboard"
+#CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-i18n-dashboard-zh-cn luci-app-dashboard"
 # 分布式 WiFi 控制器
 CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-i18n-dawn-zh-cn luci-app-dawn"
 # 无线认证守护进程
@@ -167,7 +168,7 @@ CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-i18n-ddns-zh-cn luci-app-ddns"
 # 磁盘管理器
 CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-i18n-diskman-zh-cn luci-app-diskman"
 # DSL 宽带控制
-CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-i18n-dsl-zh-cn luci-app-dsl"
+#CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-i18n-dsl-zh-cn luci-app-dsl"
 # ADS-B 航班追踪
 CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-i18n-dump1090-zh-cn luci-app-dump1090"
 # 动态接入点管理
@@ -183,7 +184,7 @@ CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-i18n-example-zh-cn luci-app-example"
 # FileBrowser（Go 版）
 CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-i18n-filebrowser-go-zh-cn luci-app-filebrowser-go"
 # FileBrowser（标准版）
-CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-i18n-filebrowser-zh-cn luci-app-filebrowser"
+#CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-i18n-filebrowser-zh-cn luci-app-filebrowser"
 # 文件管理器
 CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-i18n-filemanager-zh-cn luci-app-filemanager"
 # FRP 内网穿透客户端
@@ -215,7 +216,8 @@ CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-i18n-microsocks-zh-cn luci-app-microsocks
 # MiniDLNA 流媒体
 CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-i18n-minidlna-zh-cn luci-app-minidlna"
 # MiniEAP 校园网认证
-CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-i18n-minieap-zh-cn luci-app-minieap"
+#CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-i18n-minieap-zh-cn luci-app-minieap"
+USTOM_PACKAGES="$CUSTOM_PACKAGES luci-proto-minieap luci-i18n-minieap-zh-cn"
 # MJPG-Streamer 摄像头
 CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-i18n-mjpg-streamer-zh-cn luci-app-mjpg-streamer"
 # 4G 模块频段锁定
@@ -273,7 +275,7 @@ CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-i18n-pagekitec-zh-cn luci-app-pagekitec"
 # 策略路由
 CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-i18n-pbr-zh-cn luci-app-pbr"
 # PPPoE 中继
-CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-i18n-pppoe-relay-zh-cn luci-app-pppoe-relay"
+#CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-i18n-pppoe-relay-zh-cn luci-app-pppoe-relay"
 # PPPoE 服务端
 CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-i18n-pppoe-server-zh-cn luci-app-pppoe-server"
 # Privoxy 网页过滤
