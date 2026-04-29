@@ -1,18 +1,26 @@
 #!/bin/bash
 # =====================================================
-#  设备专用调整 (减法为主)
-#  x86-64 不干预，CR6608 移除不适合的软件
+#  设备专用调整 (减法为主，x86-64 附加修复)
 #
 #  运行逻辑：
-#    - 编译 x86-64 时此脚本不做任何改动，完全保留
-#      shell/custom-packages.sh 中定义的全部软件
-#    - 编译小米 CR6608 时，先移除不适合嵌入式的重量级软件，
-#      再额外添加几个轻量专属插件
+#    - 编译 x86-64 时：
+#        • 强制排除 libustream-openssl 避免与默认 mbedtls 冲突
+#        • 保留 shell/custom-packages.sh 中全部软件
+#    - 编译小米 CR6608 时：
+#        • 先移除体积巨大或不适合嵌入式设备的软件
+#        • 再补充专属轻量级软件
 # =====================================================
 
 TARGET_DEVICE="${TARGET_DEVICE:-}"
 
-# ---------- 小米 CR6608 专用调整 ----------
+# ───────────────── x86-64 专用修复 ─────────────────
+if [[ "$TARGET_DEVICE" == *"x86-64"* ]]; then
+    # 强制排除 openssl SSL 后端，避免与默认 mbedtls 冲突
+    CUSTOM_PACKAGES="$CUSTOM_PACKAGES -libustream-openssl"
+    # 注意：其他所有软件已由 shell/custom-packages.sh 提供，此处无需重复
+fi
+
+# ───────────────── 小米 CR6608 专用调整 ─────────────────
 if [[ "$TARGET_DEVICE" == "xiaomi_mi-router-cr6608" ]]; then
     # ① 移除体积巨大或不适合嵌入式的软件
     CUSTOM_PACKAGES="$CUSTOM_PACKAGES \
@@ -157,12 +165,11 @@ if [[ "$TARGET_DEVICE" == "xiaomi_mi-router-cr6608" ]]; then
     # 应用过滤 / 家长控制
     luci-app-appfilter luci-i18n-appfilter-zh-cn"
 
-    # ③ 节点小宝（请将下面的注释改为正确的包名后取消注释）
-    # 例如常见的组网插件有 luci-app-easymesh、luci-app-xiaobao 等
-    # CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-app-你的包名 luci-i18n-你的包名-zh-cn"
+    # ③ 节点小宝（请确认包名后取消注释）
+    # CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-app-easymesh luci-i18n-easymesh-zh-cn"
 
-    # ④ IPv6、无线、无线中继、Turbo ACC、OpenClash、ZeroTier、
-    #    TTYD、autoreboot、UPnP、adblock 等均已默认保留，无需额外操作
+    # 注意：IPv6、无线、无线中继、Turbo ACC、OpenClash、ZeroTier、
+    # TTYD、autoreboot、UPnP、adblock 等均已默认保留，无需额外操作
 fi
 
 export CUSTOM_PACKAGES
