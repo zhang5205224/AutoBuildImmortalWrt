@@ -4,6 +4,9 @@
 #  如需分设备配置, 请在 scripts/custom_config.sh 中判断 $TARGET_DEVICE
 # =====================================================
 
+# 强制仅使用 libustream-openssl，移除 libustream-mbedtls 以避免文件冲突
+CUSTOM_PACKAGES="$CUSTOM_PACKAGES -libustream-mbedtls -libustream-mbedtls20201210"
+
 # ---------- 首页和网络向导 ----------
 CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-i18n-quickstart-zh-cn"
 
