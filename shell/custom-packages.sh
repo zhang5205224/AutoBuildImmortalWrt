@@ -7,24 +7,29 @@
 
 # ═══════════════ x86-64 专用 openssl 冲突修复 ═══════════════
 if [[ "$PROFILE" == *"x86-64"* ]]; then
-    # 保留 mbedtls 作为 SSL 后端
+    # 强制保留 mbedtls
     CUSTOM_PACKAGES="$CUSTOM_PACKAGES libustream-mbedtls"
-    # 移除所有 openssl 相关组件，避免文件冲突
-    CUSTOM_PACKAGES="$CUSTOM_PACKAGES -libustream-openssl"
-    CUSTOM_PACKAGES="$CUSTOM_PACKAGES -luci-ssl-openssl"
-    CUSTOM_PACKAGES="$CUSTOM_PACKAGES -luci-ssl"
-    CUSTOM_PACKAGES="$CUSTOM_PACKAGES -libcurl4-openssl"
-    CUSTOM_PACKAGES="$CUSTOM_PACKAGES -curl-openssl"
-    CUSTOM_PACKAGES="$CUSTOM_PACKAGES -ca-bundle-openssl"
-    CUSTOM_PACKAGES="$CUSTOM_PACKAGES -libopenssl-afalg"
-    CUSTOM_PACKAGES="$CUSTOM_PACKAGES -openvpn-openssl"
-    # 移除 OpenVPN 服务端/客户端，防止拉入 openssl 依赖
-    CUSTOM_PACKAGES="$CUSTOM_PACKAGES -luci-app-openvpn-server"
-    CUSTOM_PACKAGES="$CUSTOM_PACKAGES -luci-i18n-openvpn-server-zh-cn"
-    CUSTOM_PACKAGES="$CUSTOM_PACKAGES -luci-app-openvpn"
-    CUSTOM_PACKAGES="$CUSTOM_PACKAGES -luci-i18n-openvpn-zh-cn"
-    # 移除 wpad openssl 版本
-    CUSTOM_PACKAGES="$CUSTOM_PACKAGES -wpad-openssl"
+    # 移除所有可能引入 openssl 的包名（包括具体版本）
+    CUSTOM_PACKAGES="$CUSTOM_PACKAGES \
+    -libustream-openssl \
+    -libustream-openssl20201210 \
+    -luci-ssl-openssl \
+    -luci-ssl \
+    -libcurl4-openssl \
+    -curl-openssl \
+    -ca-bundle-openssl \
+    -libopenssl-afalg \
+    -libopenssl \
+    -libopenssl-conf \
+    -libopenssl-legacy \
+    -openvpn-openssl \
+    -wpad-openssl \
+    -luci-app-openvpn-server \
+    -luci-i18n-openvpn-server-zh-cn \
+    -luci-app-openvpn \
+    -luci-i18n-openvpn-zh-cn"
+    # 如果 curl / wget 也强行依赖 openssl，可移除它们
+    # 但系统通常已经有 wget-ssl 且兼容 mbedtls，暂不删除
 fi
 
 # ═══════════════ 所有平台通用的完整软件列表 ═══════════════
