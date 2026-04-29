@@ -8,20 +8,24 @@ TARGET_DEVICE="${TARGET_DEVICE:-}"
 
 # ───────────────── x86-64 专用修复（解决 openssl 冲突）─────────────────
 if [[ "$TARGET_DEVICE" == *"x86-64"* ]]; then
+    # ★ 彻底解决 openssl 冲突 ★
     CUSTOM_PACKAGES="$CUSTOM_PACKAGES \
-    # 显式保留 mbedtls 作为 SSL 后端
+    # 强制保留 mbedtls SSL 后端
     libustream-mbedtls \
-    # 移除 openssl 后端，避免与 mbedtls 冲突
+    # 移除 openssl 后端
     -libustream-openssl \
     # 移除依赖 openssl 的 Luci SSL 组件
     -luci-ssl-openssl \
     -luci-ssl \
-    # 移除基于 openssl 的 curl 和依赖
+    # 移除基于 openssl 的 curl 和 ca-bundle
     -libcurl4-openssl \
     -curl-openssl \
     -ca-bundle-openssl \
-    # 移除 openssl 的 afalg 引擎
-    -libopenssl-afalg"
+    # 移除 openssl afalg 引擎
+    -libopenssl-afalg \
+    # 移除 OpenVPN 的 openssl 版本，改用 mbedtls 版本
+    -openvpn-openssl \
+    openvpn-mbedtls"
 fi
 
 # ───────────────── 小米 CR6608 专用调整 ─────────────────
