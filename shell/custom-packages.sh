@@ -5,6 +5,7 @@
 #  适用于 build-iso.yml (x86) 和 Build Wireless Router
 # =====================================================
 
+
 # ═══════════════ x86-64 专用 openssl 冲突修复 ═══════════════
 # ★ 首先强制使用 mbedtls 并排除 openssl ★
 CUSTOM_PACKAGES="libustream-mbedtls \
@@ -354,8 +355,8 @@ CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-i18n-xlnetacc-zh-cn luci-app-xlnetacc"
 # ZeroTier 虚拟局域网及中文
 CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-i18n-zerotier-zh-cn luci-app-zerotier"
 
-# ═══════════════ CR6608 专用减法 ═══════════════
 
+# ═══════════════ CR6608 精选软件（完全满足你的需求） ═══════════════
 # ★ 首先强制使用 mbedtls 并排除 openssl ★
 CUSTOM_PACKAGES="libustream-mbedtls \
 -libustream-openssl \
@@ -373,153 +374,36 @@ CUSTOM_PACKAGES="libustream-mbedtls \
 -wpad-openssl"
 
 if [[ "$PROFILE" == "xiaomi_mi-router-cr6608" ]]; then
-    # 移除 AdGuard Home（主程序太大）
-    CUSTOM_PACKAGES="$CUSTOM_PACKAGES -luci-app-adguardhome"
-    # 移除 Docker 全家桶
-    CUSTOM_PACKAGES="$CUSTOM_PACKAGES -luci-app-docker -luci-app-dockerman -luci-i18n-dockerman-zh-cn"
-    # 移除 qBittorrent
-    CUSTOM_PACKAGES="$CUSTOM_PACKAGES -luci-app-qbittorrent -luci-i18n-qbittorrent-zh-cn"
-    # 移除 Transmission
-    CUSTOM_PACKAGES="$CUSTOM_PACKAGES -luci-app-transmission -luci-i18n-transmission-zh-cn"
-    # 移除 Netdata
-    CUSTOM_PACKAGES="$CUSTOM_PACKAGES -luci-app-netdata -luci-i18n-netdata-zh-cn"
-    # 移除 Syncthing
-    CUSTOM_PACKAGES="$CUSTOM_PACKAGES -luci-app-syncthing -luci-i18n-syncthing-zh-cn"
-    # 移除音乐远程控制
-    CUSTOM_PACKAGES="$CUSTOM_PACKAGES -luci-app-music-remote-center -luci-i18n-music-remote-center-zh-cn"
-    # 移除 Lucky 大吉
-    CUSTOM_PACKAGES="$CUSTOM_PACKAGES -luci-app-lucky -lucky"
-    # 移除集客 AC
-    CUSTOM_PACKAGES="$CUSTOM_PACKAGES -luci-app-gecoosac -gecoosac"
-    # 移除 AirPlay 2
-    CUSTOM_PACKAGES="$CUSTOM_PACKAGES -luci-app-airplay2 -luci-i18n-airplay2-zh-cn"
-    # 移除 aMule
-    CUSTOM_PACKAGES="$CUSTOM_PACKAGES -luci-app-amule -luci-i18n-amule-zh-cn"
-    # 移除 Aria2
-    CUSTOM_PACKAGES="$CUSTOM_PACKAGES -luci-app-aria2 -luci-i18n-aria2-zh-cn"
-    # 移除 PS3 服务器
-    CUSTOM_PACKAGES="$CUSTOM_PACKAGES -luci-app-ps3netsrv -luci-i18n-ps3netsrv-zh-cn"
-    # 移除 Rclone
-    CUSTOM_PACKAGES="$CUSTOM_PACKAGES -luci-app-rclone -luci-i18n-rclone-zh-cn"
-    # 移除 Ksmbd
-    CUSTOM_PACKAGES="$CUSTOM_PACKAGES -luci-app-ksmbd -luci-i18n-ksmbd-zh-cn"
-    # 移除 MiniDLNA
-    CUSTOM_PACKAGES="$CUSTOM_PACKAGES -luci-app-minidlna -luci-i18n-minidlna-zh-cn"
-    # 移除 usteer
-    CUSTOM_PACKAGES="$CUSTOM_PACKAGES -luci-app-usteer -luci-i18n-usteer-zh-cn"
-    # 移除 Samba4
-    CUSTOM_PACKAGES="$CUSTOM_PACKAGES -luci-app-samba4 -luci-i18n-samba4-zh-cn"
-    # 移除硬盘休眠
-    CUSTOM_PACKAGES="$CUSTOM_PACKAGES -luci-app-hd-idle -luci-i18n-hd-idle-zh-cn"
-    # 移除 FileBrowser Go
-    CUSTOM_PACKAGES="$CUSTOM_PACKAGES -luci-app-filebrowser-go -luci-i18n-filebrowser-go-zh-cn"
-    # 移除 LXC
-    CUSTOM_PACKAGES="$CUSTOM_PACKAGES -luci-app-lxc -luci-i18n-lxc-zh-cn"
-    # 移除 CrowdSec
-    CUSTOM_PACKAGES="$CUSTOM_PACKAGES -luci-app-crowdsec-firewall-bouncer -luci-i18n-crowdsec-firewall-bouncer-zh-cn"
-    # 移除 SoftEther VPN
-    CUSTOM_PACKAGES="$CUSTOM_PACKAGES -luci-app-softethervpn -luci-i18n-softethervpn-zh-cn"
-    # 移除 OpenVPN 服务端/客户端
-    CUSTOM_PACKAGES="$CUSTOM_PACKAGES -luci-app-openvpn-server -luci-i18n-openvpn-server-zh-cn"
-    CUSTOM_PACKAGES="$CUSTOM_PACKAGES -luci-app-openvpn -luci-i18n-openvpn-zh-cn"
-    # 移除 IPSec VPN
-    CUSTOM_PACKAGES="$CUSTOM_PACKAGES -luci-app-ipsec-vpnd -luci-i18n-ipsec-vpnd-zh-cn"
-    # 移除 OpenConnect
-    CUSTOM_PACKAGES="$CUSTOM_PACKAGES -luci-app-ocserv -luci-i18n-ocserv-zh-cn"
-    # 移除 NFS
-    CUSTOM_PACKAGES="$CUSTOM_PACKAGES -luci-app-nfs -luci-i18n-nfs-zh-cn"
-    # 移除 OSCam
-    CUSTOM_PACKAGES="$CUSTOM_PACKAGES -luci-app-oscam -luci-i18n-oscam-zh-cn"
-    # 移除 SNMP
-    CUSTOM_PACKAGES="$CUSTOM_PACKAGES -luci-app-snmpd -luci-i18n-snmpd-zh-cn"
-    # 移除 OpenWISP
-    CUSTOM_PACKAGES="$CUSTOM_PACKAGES -luci-app-openwisp -luci-i18n-openwisp-zh-cn"
-    # 移除航班追踪
-    CUSTOM_PACKAGES="$CUSTOM_PACKAGES -luci-app-dump1090 -luci-i18n-dump1090-zh-cn"
-    # 移除 Spotifyd
-    CUSTOM_PACKAGES="$CUSTOM_PACKAGES -luci-app-spotifyd -luci-i18n-spotifyd-zh-cn"
-    # 移除 Radicale
-    CUSTOM_PACKAGES="$CUSTOM_PACKAGES -luci-app-radicale -luci-i18n-radicale-zh-cn"
-    # 移除摄像头
-    CUSTOM_PACKAGES="$CUSTOM_PACKAGES -luci-app-mjpg-streamer -luci-i18n-mjpg-streamer-zh-cn"
-    # 移除 3Cat
-    CUSTOM_PACKAGES="$CUSTOM_PACKAGES -luci-app-3cat -luci-i18n-3cat-zh-cn"
-    # 移除 MWAN3
-    CUSTOM_PACKAGES="$CUSTOM_PACKAGES -luci-app-mwan3 -luci-i18n-mwan3-zh-cn"
-    # 移除策略路由
-    CUSTOM_PACKAGES="$CUSTOM_PACKAGES -luci-app-pbr -luci-i18n-pbr-zh-cn"
-    # 移除 NATMap
-    CUSTOM_PACKAGES="$CUSTOM_PACKAGES -luci-app-natmap -luci-i18n-natmap-zh-cn"
-    # 移除 NPS 服务端
-    CUSTOM_PACKAGES="$CUSTOM_PACKAGES -luci-app-nps -luci-i18n-nps-zh-cn"
-    # 移除 KMS 激活服务器
-    CUSTOM_PACKAGES="$CUSTOM_PACKAGES -luci-app-vlmcsd -luci-i18n-vlmcsd-zh-cn"
-    # 移除 vnStat2
-    CUSTOM_PACKAGES="$CUSTOM_PACKAGES -luci-app-vnstat2 -luci-i18n-vnstat2-zh-cn"
-    # 移除 collectd 统计
-    CUSTOM_PACKAGES="$CUSTOM_PACKAGES -luci-app-statistics -luci-i18n-statistics-zh-cn"
-    # 移除 Tor
-    CUSTOM_PACKAGES="$CUSTOM_PACKAGES -luci-app-tor -luci-i18n-tor-zh-cn"
-    # 移除 Privoxy
-    CUSTOM_PACKAGES="$CUSTOM_PACKAGES -luci-app-privoxy -luci-i18n-privoxy-zh-cn"
-    # 移除 Squid
-    CUSTOM_PACKAGES="$CUSTOM_PACKAGES -luci-app-squid -luci-i18n-squid-zh-cn"
-    # 移除 TinyProxy
-    CUSTOM_PACKAGES="$CUSTOM_PACKAGES -luci-app-tinyproxy -luci-i18n-tinyproxy-zh-cn"
-    # 移除 GOST
-    CUSTOM_PACKAGES="$CUSTOM_PACKAGES -luci-app-gost -luci-i18n-gost-zh-cn"
-    # 移除 Ngrok
-    CUSTOM_PACKAGES="$CUSTOM_PACKAGES -luci-app-ngrokc -luci-i18n-ngrokc-zh-cn"
-    # 移除 FRP 服务端
-    CUSTOM_PACKAGES="$CUSTOM_PACKAGES -luci-app-frps -luci-i18n-frps-zh-cn"
-    # 移除 N2N
-    CUSTOM_PACKAGES="$CUSTOM_PACKAGES -luci-app-n2n -luci-i18n-n2n-zh-cn"
-    # 移除 Easytier
-    CUSTOM_PACKAGES="$CUSTOM_PACKAGES -luci-app-easytier -easytier"
-    # 移除 PageKite
-    CUSTOM_PACKAGES="$CUSTOM_PACKAGES -luci-app-pagekitec -luci-i18n-pagekitec-zh-cn"
-    # 移除 xfrpc
-    CUSTOM_PACKAGES="$CUSTOM_PACKAGES -luci-app-xfrpc -luci-i18n-xfrpc-zh-cn"
-    # 移除 SSH 隧道 UI
-    CUSTOM_PACKAGES="$CUSTOM_PACKAGES -luci-app-sshtunnel -luci-i18n-sshtunnel-zh-cn"
-    # 移除 IPTV 转发
-    CUSTOM_PACKAGES="$CUSTOM_PACKAGES -luci-app-rtp2httpd -luci-i18n-rtp2httpd-zh-cn"
-    # 移除 dufs
-    CUSTOM_PACKAGES="$CUSTOM_PACKAGES -luci-app-dufs -luci-i18n-dufs-zh-cn"
-    # 移除统一文件共享
-    CUSTOM_PACKAGES="$CUSTOM_PACKAGES -luci-app-unishare -webdav2"
-    # 移除 CPU 限制
-    CUSTOM_PACKAGES="$CUSTOM_PACKAGES -luci-app-cpulimit -luci-i18n-cpulimit-zh-cn"
-    # 移除 OLED 显示
-    CUSTOM_PACKAGES="$CUSTOM_PACKAGES -luci-app-oled -luci-i18n-oled-zh-cn"
-    # 移除短信工具
-    CUSTOM_PACKAGES="$CUSTOM_PACKAGES -luci-app-sms-tool-js -luci-i18n-sms-tool-js-zh-cn"
-    # 移除 4G 频段锁定
-    CUSTOM_PACKAGES="$CUSTOM_PACKAGES -luci-app-modemband -luci-i18n-modemband-zh-cn"
-    # 移除 USB 打印机
-    CUSTOM_PACKAGES="$CUSTOM_PACKAGES -luci-app-usb-printer -luci-i18n-usb-printer-zh-cn"
-    # 移除打印服务器
-    CUSTOM_PACKAGES="$CUSTOM_PACKAGES -luci-app-p910nd -luci-i18n-p910nd-zh-cn"
-    # 移除 Dae 代理（MT7621 可能不存在）
-    CUSTOM_PACKAGES="$CUSTOM_PACKAGES -luci-i18n-dae-zh-cn -luci-app-dae"
-    # 移除 Daed 代理（MT7621 可能不存在）
-    CUSTOM_PACKAGES="$CUSTOM_PACKAGES -luci-i18n-daed-zh-cn -luci-app-daed"
-    # 移除 RustDesk 服务端（MT7621 可能不存在）
-    CUSTOM_PACKAGES="$CUSTOM_PACKAGES -luci-i18n-rustdesk-server-zh-cn -luci-app-rustdesk-server"
-
-    # ═══════ 为 CR6608 额外添加轻量软件 ═══════
-    # Argon 主题
+    # 基础中文
+    CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-i18n-base-zh-cn luci-i18n-firewall-zh-cn"
+    # Argon 主题及配置
     CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-theme-argon luci-app-argon-config luci-i18n-argon-config-zh-cn"
-    # ARP 绑定（IP/MAC 绑定）
-    CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-app-arpbind luci-i18n-arpbind-zh-cn"
-    # DDNS-GO 动态域名解析
+    # TTYD 终端
+    CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-app-ttyd luci-i18n-ttyd-zh-cn"
+    # 自动重启
+    CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-app-autoreboot luci-i18n-autoreboot-zh-cn"
+    # DDNS-GO
     CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-app-ddns-go luci-i18n-ddns-go-zh-cn"
-    # DDNSTO 远程控制
-    #CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-app-ddnsto"
     # 网络唤醒
     CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-app-wol luci-i18n-wol-zh-cn"
     # 微信推送
     CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-app-wechatpush luci-i18n-wechatpush-zh-cn"
-    # 应用过滤（家长控制）
+    # UPnP
+    CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-app-upnp luci-i18n-upnp-zh-cn"
+    # IP/MAC 绑定
+    CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-app-arpbind luci-i18n-arpbind-zh-cn"
+    # Turbo ACC 网络加速
+    CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-app-turboacc"
+    # OpenClash 代理
+    CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-app-openclash"
+    # 去广告 adblock
+    CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-app-adblock luci-i18n-adblock-zh-cn"
+    # 应用过滤
     CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-app-appfilter luci-i18n-appfilter-zh-cn"
+    # ZeroTier 虚拟局域网
+    CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-app-zerotier luci-i18n-zerotier-zh-cn"
+    # IPv6 支持（默认已开启，这里可加 luci-proto-ipv6 确保界面可见）
+    CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-proto-ipv6"
+    # 节点小宝（如果你知道确切包名，请取消下面一行的注释并替换）
+    # CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-app-easymesh luci-i18n-easymesh-zh-cn"
 fi
