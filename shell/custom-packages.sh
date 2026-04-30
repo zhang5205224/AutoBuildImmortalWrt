@@ -23,7 +23,7 @@ CUSTOM_PACKAGES="libustream-mbedtls \
 -luci-i18n-openvpn-zh-cn \
 -wpad-openssl"
 
-# ═══════════════ 所有平台通用的完整软件列表 ═══════════════
+# ═══════════════ x86-64软件列表 ═══════════════
 # 首页和网络向导
 CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-i18n-quickstart-zh-cn"
 # 高级卸载
@@ -356,7 +356,7 @@ CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-i18n-xlnetacc-zh-cn luci-app-xlnetacc"
 CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-i18n-zerotier-zh-cn luci-app-zerotier"
 
 
-# ═══════════════ CR6608 精选软件（完全满足你的需求） ═══════════════
+# ═══════════════ CR6608 精选软件 ═══════════════
 # ★ 首先强制使用 mbedtls 并排除 openssl ★
 CUSTOM_PACKAGES="libustream-mbedtls \
 -libustream-openssl \
@@ -404,6 +404,67 @@ if [[ "$PROFILE" == "xiaomi_mi-router-cr6608" ]]; then
     CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-app-zerotier luci-i18n-zerotier-zh-cn"
     # IPv6 支持（默认已开启，这里可加 luci-proto-ipv6 确保界面可见）
     CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-proto-ipv6"
+    # 节点小宝（如果你知道确切包名，请取消下面一行的注释并替换）
+    # CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-app-easymesh luci-i18n-easymesh-zh-cn"
+fi
+
+
+# ═══════════════ newifi-d2 精选软件 ═══════════════
+# ★ 首先强制使用 mbedtls 并排除 openssl ★
+CUSTOM_PACKAGES="libustream-mbedtls \
+-libustream-openssl \
+-luci-ssl-openssl \
+-luci-ssl \
+-libcurl4-openssl \
+-curl-openssl \
+-ca-bundle-openssl \
+-libopenssl-afalg \
+-openvpn-openssl \
+-luci-app-openvpn-server \
+-luci-i18n-openvpn-server-zh-cn \
+-luci-app-openvpn \
+-luci-i18n-openvpn-zh-cn \
+-wpad-openssl"
+
+if [[ "$PROFILE" == "d-team_newifi-d2" ]]; then
+    # 基础中文
+    CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-i18n-base-zh-cn luci-i18n-firewall-zh-cn"
+    # Argon 主题及配置
+    CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-theme-argon luci-app-argon-config luci-i18n-argon-config-zh-cn"
+    # TTYD 终端
+    CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-app-ttyd luci-i18n-ttyd-zh-cn"
+    # 自动重启
+    CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-app-autoreboot luci-i18n-autoreboot-zh-cn"
+    # DDNS-GO
+    CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-app-ddns-go luci-i18n-ddns-go-zh-cn"
+    # 网络唤醒
+    CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-app-wol luci-i18n-wol-zh-cn"
+    # 微信推送
+    CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-app-wechatpush luci-i18n-wechatpush-zh-cn"
+    # UPnP
+    CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-app-upnp luci-i18n-upnp-zh-cn"
+    # IP/MAC 绑定
+    CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-app-arpbind luci-i18n-arpbind-zh-cn"
+    # Turbo ACC 网络加速
+    CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-app-turboacc"
+    # OpenClash 代理
+    CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-app-openclash"
+    # 去广告 adblock
+    CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-app-adblock luci-i18n-adblock-zh-cn"
+    # 应用过滤
+    CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-app-appfilter luci-i18n-appfilter-zh-cn"
+    # ZeroTier 虚拟局域网
+    CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-app-zerotier luci-i18n-zerotier-zh-cn"
+    # IPv6 支持（默认已开启，这里可加 luci-proto-ipv6 确保界面可见）
+    CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-proto-ipv6"
+    # 分区扩容工具及中文
+    CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-app-partexp luci-i18n-partexp-zh-cn"
+    # USB 打印机共享及中文
+    CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-i18n-usb-printer-zh-cn luci-app-usb-printer"
+    # Samba4 文件共享及中文
+    CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-i18n-samba4-zh-cn luci-app-samba4"
+    # CIFS/SMB 网络共享挂载及中文
+    CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-i18n-cifs-mount-zh-cn luci-app-cifs-mount"
     # 节点小宝（如果你知道确切包名，请取消下面一行的注释并替换）
     # CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-app-easymesh luci-i18n-easymesh-zh-cn"
 fi
