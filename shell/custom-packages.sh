@@ -355,6 +355,23 @@ CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-i18n-xlnetacc-zh-cn luci-app-xlnetacc"
 CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-i18n-zerotier-zh-cn luci-app-zerotier"
 
 # ═══════════════ CR6608 专用减法 ═══════════════
+
+# ★ 首先强制使用 mbedtls 并排除 openssl ★
+CUSTOM_PACKAGES="libustream-mbedtls \
+-libustream-openssl \
+-luci-ssl-openssl \
+-luci-ssl \
+-libcurl4-openssl \
+-curl-openssl \
+-ca-bundle-openssl \
+-libopenssl-afalg \
+-openvpn-openssl \
+-luci-app-openvpn-server \
+-luci-i18n-openvpn-server-zh-cn \
+-luci-app-openvpn \
+-luci-i18n-openvpn-zh-cn \
+-wpad-openssl"
+
 if [[ "$PROFILE" == "xiaomi_mi-router-cr6608" ]]; then
     # 移除 AdGuard Home（主程序太大）
     CUSTOM_PACKAGES="$CUSTOM_PACKAGES -luci-app-adguardhome"
