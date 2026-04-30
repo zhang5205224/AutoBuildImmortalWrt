@@ -515,7 +515,7 @@ if [[ "$PROFILE" == "xiaomi_mi-router-cr6608" ]]; then
     # DDNS-GO 动态域名解析
     CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-app-ddns-go luci-i18n-ddns-go-zh-cn"
     # DDNSTO 远程控制
-    CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-app-ddnsto"
+    #CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-app-ddnsto"
     # 网络唤醒
     CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-app-wol luci-i18n-wol-zh-cn"
     # 微信推送
