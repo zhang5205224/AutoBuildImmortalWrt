@@ -438,7 +438,7 @@ if [[ "$PROFILE" == "d-team_newifi-d2" ]]; then
     # DDNS-GO
     CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-app-ddns-go luci-i18n-ddns-go-zh-cn"
     # 网络唤醒
-    CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-app-wol luci-i18n-wol-zh-cn"
+    #CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-app-wol luci-i18n-wol-zh-cn"
     # 微信推送
     CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-app-wechatpush luci-i18n-wechatpush-zh-cn"
     # UPnP
@@ -452,7 +452,7 @@ if [[ "$PROFILE" == "d-team_newifi-d2" ]]; then
     # 去广告 adblock
     CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-app-adblock luci-i18n-adblock-zh-cn"
     # 应用过滤
-    CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-app-appfilter luci-i18n-appfilter-zh-cn"
+    #CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-app-appfilter luci-i18n-appfilter-zh-cn"
     # ZeroTier 虚拟局域网
     CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-app-zerotier luci-i18n-zerotier-zh-cn"
     # IPv6 支持（默认已开启，这里可加 luci-proto-ipv6 确保界面可见）
@@ -460,9 +460,9 @@ if [[ "$PROFILE" == "d-team_newifi-d2" ]]; then
     # 分区扩容工具及中文
     CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-app-partexp luci-i18n-partexp-zh-cn"
     # USB 打印机共享及中文
-    CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-i18n-usb-printer-zh-cn luci-app-usb-printer"
+    #CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-i18n-usb-printer-zh-cn luci-app-usb-printer"
     # Samba4 文件共享及中文
-    CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-i18n-samba4-zh-cn luci-app-samba4"
+    #CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-i18n-samba4-zh-cn luci-app-samba4"
     # CIFS/SMB 网络共享挂载及中文
     CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-i18n-cifs-mount-zh-cn luci-app-cifs-mount"
     # 节点小宝（如果你知道确切包名，请取消下面一行的注释并替换）
