@@ -432,7 +432,7 @@ if [[ "$PROFILE" == "d-team_newifi-d2" ]]; then
     # Argon 主题及配置
     CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-theme-argon luci-app-argon-config luci-i18n-argon-config-zh-cn"
     # TTYD 终端
-    CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-app-ttyd luci-i18n-ttyd-zh-cn"
+    #CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-app-ttyd luci-i18n-ttyd-zh-cn"
     # 自动重启
     CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-app-autoreboot luci-i18n-autoreboot-zh-cn"
     # DDNS-GO
@@ -464,7 +464,7 @@ if [[ "$PROFILE" == "d-team_newifi-d2" ]]; then
     # Samba4 文件共享及中文
     #CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-i18n-samba4-zh-cn luci-app-samba4"
     # CIFS/SMB 网络共享挂载及中文
-    CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-i18n-cifs-mount-zh-cn luci-app-cifs-mount"
+    #CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-i18n-cifs-mount-zh-cn luci-app-cifs-mount"
     # 节点小宝（如果你知道确切包名，请取消下面一行的注释并替换）
     # CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-app-easymesh luci-i18n-easymesh-zh-cn"
 fi
