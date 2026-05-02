@@ -440,7 +440,7 @@ if [[ "$PROFILE" == "d-team_newifi-d2" ]]; then
     # 网络唤醒
     #CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-app-wol luci-i18n-wol-zh-cn"
     # 微信推送
-    CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-app-wechatpush luci-i18n-wechatpush-zh-cn"
+    #CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-app-wechatpush luci-i18n-wechatpush-zh-cn"
     # UPnP
     CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-app-upnp luci-i18n-upnp-zh-cn"
     # IP/MAC 绑定
@@ -449,16 +449,16 @@ if [[ "$PROFILE" == "d-team_newifi-d2" ]]; then
     CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-app-turboacc"
     # OpenClash 代理
     CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-app-openclash"
-    # 去广告 adblock
-    CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-app-adblock luci-i18n-adblock-zh-cn"
+    # 去广告（使用更轻量的 adblock-fast 替代标准版）
+    CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-app-adblock-fast luci-i18n-adblock-fast-zh-cn"
     # 应用过滤
     #CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-app-appfilter luci-i18n-appfilter-zh-cn"
     # ZeroTier 虚拟局域网
     CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-app-zerotier luci-i18n-zerotier-zh-cn"
     # IPv6 支持（默认已开启，这里可加 luci-proto-ipv6 确保界面可见）
-    CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-proto-ipv6"
+    #CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-proto-ipv6"
     # 分区扩容工具及中文
-    CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-app-partexp luci-i18n-partexp-zh-cn"
+    #CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-app-partexp luci-i18n-partexp-zh-cn"
     # USB 打印机共享及中文
     #CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-i18n-usb-printer-zh-cn luci-app-usb-printer"
     # Samba4 文件共享及中文
