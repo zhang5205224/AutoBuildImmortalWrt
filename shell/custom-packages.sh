@@ -294,7 +294,7 @@ else
     # Netdata 性能监控及中文
     CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-i18n-netdata-zh-cn luci-app-netdata"
     # NextDNS 广告拦截及中文
-    CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-i18n-nextdns-zh-cn luci-app-nextdns"
+    #CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-i18n-nextdns-zh-cn luci-app-nextdns"
     # NFS 共享及中文
     CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-i18n-nfs-zh-cn luci-app-nfs"
     # nftables QoS 及中文
