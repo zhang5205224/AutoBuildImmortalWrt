@@ -357,22 +357,6 @@ CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-i18n-zerotier-zh-cn luci-app-zerotier"
 
 
 # ═══════════════ CR6608 精选软件 ═══════════════
-# ★ 首先强制使用 mbedtls 并排除 openssl ★
-CUSTOM_PACKAGES="libustream-mbedtls \
--libustream-openssl \
--luci-ssl-openssl \
--luci-ssl \
--libcurl4-openssl \
--curl-openssl \
--ca-bundle-openssl \
--libopenssl-afalg \
--openvpn-openssl \
--luci-app-openvpn-server \
--luci-i18n-openvpn-server-zh-cn \
--luci-app-openvpn \
--luci-i18n-openvpn-zh-cn \
--wpad-openssl"
-
 if [[ "$PROFILE" == "xiaomi_mi-router-cr6608" ]]; then
     # 基础中文
     CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-i18n-base-zh-cn luci-i18n-firewall-zh-cn"
@@ -410,22 +394,6 @@ fi
 
 
 # ═══════════════ newifi-d2 精选软件 ═══════════════
-# ★ 首先强制使用 mbedtls 并排除 openssl ★
-CUSTOM_PACKAGES="libustream-mbedtls \
--libustream-openssl \
--luci-ssl-openssl \
--luci-ssl \
--libcurl4-openssl \
--curl-openssl \
--ca-bundle-openssl \
--libopenssl-afalg \
--openvpn-openssl \
--luci-app-openvpn-server \
--luci-i18n-openvpn-server-zh-cn \
--luci-app-openvpn \
--luci-i18n-openvpn-zh-cn \
--wpad-openssl"
-
 if [[ "$PROFILE" == "d-team_newifi-d2" ]]; then
     # 基础中文
     CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-i18n-base-zh-cn luci-i18n-firewall-zh-cn"
