@@ -56,6 +56,41 @@ if [[ "$PROFILE" == "xiaomi_mi-router-cr6608" ]]; then
     # 节点小宝（若知包名可取消注释替换）
     # CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-app-easymesh luci-i18n-easymesh-zh-cn"
 
+elif [[ "$PROFILE" == "xiaomi_mi-router-ax3000t" ]]; then
+    # ═══════════════ AX3000T 精选软件 ═══════════════
+    # 基础中文
+    CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-i18n-base-zh-cn luci-i18n-firewall-zh-cn"
+    # Argon 主题及配置
+    CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-theme-argon luci-app-argon-config luci-i18n-argon-config-zh-cn"
+    # TTYD 终端
+    CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-app-ttyd luci-i18n-ttyd-zh-cn"
+    # 自动重启
+    CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-app-autoreboot luci-i18n-autoreboot-zh-cn"
+    # DDNS-GO
+    CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-app-ddns-go luci-i18n-ddns-go-zh-cn"
+    # 网络唤醒
+    CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-app-wol luci-i18n-wol-zh-cn"
+    # 微信推送
+    CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-app-wechatpush luci-i18n-wechatpush-zh-cn"
+    # UPnP
+    CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-app-upnp luci-i18n-upnp-zh-cn"
+    # IP/MAC 绑定
+    CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-app-arpbind luci-i18n-arpbind-zh-cn"
+    # Turbo ACC 网络加速
+    CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-app-turboacc"
+    # OpenClash 代理
+    CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-app-openclash"
+    # 去广告 adblock
+    CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-app-adblock luci-i18n-adblock-zh-cn"
+    # 应用过滤
+    CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-app-appfilter luci-i18n-appfilter-zh-cn"
+    # ZeroTier 虚拟局域网
+    CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-app-zerotier luci-i18n-zerotier-zh-cn"
+    # IPv6 支持（确保界面可见）
+    CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-proto-ipv6"
+    # 节点小宝（若知包名可取消注释替换）
+    # CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-app-easymesh luci-i18n-easymesh-zh-cn"    
+
 elif [[ "$PROFILE" == "d-team_newifi-d2" ]]; then
     # ═══════════════ newifi-d2 精选软件 ═══════════════
     # 基础中文
